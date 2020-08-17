@@ -1,11 +1,8 @@
 body {
-    display: flex;
-    flex-direction: column;
-    max-width: 800px;
-    margin: auto;
-    text-align: center;
     background-color: #303030;
     color: #a9a9a9;
+    text-align: center;
+
 }
 
 .menu {
@@ -18,6 +15,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
 }
 
 .menu-item-container {
@@ -29,10 +27,14 @@ body {
 
 .menu-item {
     padding: 25px;
+    position: relative;
 }
+
 
 a {
     color: inherit;
+    height: 80px;
+    width: 80px;
 }
 
 a :hover {
