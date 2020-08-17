@@ -1,0 +1,45 @@
+body {
+    display: flex;
+    flex-direction: column;
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+    background-color: #303030;
+    color: #a9a9a9;
+}
+
+.menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100px;
+    height: 100%;
+    background-color: #505050;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.menu-item-container {
+    display: block;
+    top: 40%;
+    color: #202020;
+    margin: 25px 0;
+}
+
+.menu-item {
+    padding: 25px;
+}
+
+a {
+    color: inherit;
+}
+
+a :hover {
+    color: #D2691E
+}
+
+
+.text {
+    padding-top: 5000px;
+}
