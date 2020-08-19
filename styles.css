@@ -2,14 +2,29 @@ body {
     background-color: #303030;
     color: #a9a9a9;
     text-align: center;
+    font-family: 'Raleway', sans-serif;
+}
 
+a {
+    color: inherit;
+    height: 80px;
+    width: 80px;
+    line-height: 20px;
+}
+
+.background {
+    position: fixed;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    width: 93%;
 }
 
 .menu {
     position: fixed;
     top: 0;
     right: 0;
-    width: 100px;
+    width: 4%;
     height: 100%;
     background-color: #505050;
     display: flex;
@@ -20,28 +35,57 @@ body {
 
 .menu-item-container {
     display: block;
-    top: 40%;
     color: #202020;
-    margin: 25px 0;
+    text-align: center;
+    overflow: hidden;
 }
 
-.menu-item {
+
+
+.animation-container {
+    display: block;
+    position: relative;
+    width: 100%;
+    align-items: center;
+    line-height: 100px;
+    margin-bottom: 30px;
+}
+
+/* .menu-item {
     padding: 25px;
     position: relative;
+    overflow: hidden;
+} */
+
+
+
+/* Animations */
+i {
+    opacity: 1;
+
 }
 
-
-a {
-    color: inherit;
-    height: 80px;
-    width: 80px;
+.hover-text {
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .6s ease;
+    color: #D2691E;
+    background-color: #505050
 }
 
-a :hover {
-    color: #D2691E
+.hover-text span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0
 }
 
+.animation-container:hover .hover-text {
+    opacity: 1;
+}
 
-.text {
-    padding-top: 5000px;
+.animation-container:hover>i {
+    opacity: 0;
 }
