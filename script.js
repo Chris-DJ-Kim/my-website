@@ -6,6 +6,7 @@ window.onload = () => {
   const thirdLine = document.getElementById("third-line");
 
   const backGround = document.getElementsByClassName("background")[0];
+
   firstLine.style.opacity = "1";
   firstLine.style.transition = "1s ease 1s";
   secondLine.style.opacity = "1";
@@ -27,22 +28,46 @@ window.onload = () => {
     backGround.style.transition = "1s ease";
   }, 8000);
 
-  //Randomizes initial background image
-  let backgroundImage = document.getElementById("background-image");
-  //Link will be used in popup message that asks if user wants to see image source
-  let backgroundImageLink = "";
+  function handlePopUp(elementSelector, changeValue, transitionValue) {
+    elementSelector.style.left = changeValue;
+    elementSelector.style.transition = transitionValue;
+  }
 
+  //Pop up message for instructions on changing background image
+  const instructionsPopUp = document.getElementById("instructions");
+  setTimeout(() => {
+    handlePopUp(instructionsPopUp, "3%", "2s");
+  }, 10000);
+
+  setTimeout(() => {
+    handlePopUp(instructionsPopUp, "-30%", "2s");
+  }, 16000);
+
+  const linkPopUp = document.getElementById("image-link-pop-up");
+  function showImageLink() {
+    setTimeout(() => {
+      handlePopUp(linkPopUp, "3%", "2s");
+    }, 5000);
+  }
+
+  //Randomizes initial background image
   const numberOfBackgroundImages = Object.keys(images).length;
 
-  let initialImageNumber = Math.floor(Math.random() * numberOfBackgroundImages);
+  const initialImageNumber = Math.floor(
+    Math.random() * numberOfBackgroundImages
+  );
+
+  const backgroundImage = document.getElementById("background-image");
+  const backgroundImageLink = document.getElementById("image-link");
 
   backgroundImage.src = images[initialImageNumber].imageLocation;
-  backgroundImageLink = images[initialImageNumber].imageUrl;
+  backgroundImageLink.href = images[initialImageNumber].imageUrl;
 
   //Enable user to switch images with arrow keys
   //In future add buffer time between arrow keys to prevent super fast swapping
   //ALSO ADD TRANSITION EFFECTS!!!
   let currentImageNumber = initialImageNumber;
+
   setTimeout(() => {
     window.addEventListener("keydown", (event) => {
       switch (event.key) {
@@ -51,12 +76,18 @@ window.onload = () => {
             currentImageNumber = numberOfBackgroundImages - 1;
           else currentImageNumber--;
           backgroundImage.src = images[currentImageNumber].imageLocation;
+          backgroundImageLink.href = images[currentImageNumber].imageUrl;
+          clearTimeout(showImageLink);
+          showImageLink();
           break;
         case "ArrowRight":
           if (currentImageNumber === numberOfBackgroundImages - 1)
             currentImageNumber = 0;
           else currentImageNumber++;
           backgroundImage.src = images[currentImageNumber].imageLocation;
+          backgroundImageLink.href = images[currentImageNumber].imageUrl;
+          clearTimeout(showImageLink);
+          showImageLink();
           break;
         default:
           return;

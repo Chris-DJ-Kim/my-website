@@ -20,4 +20,12 @@ const images = {
     imageLocation: "./images/beach.jpg",
     imageUrl: "https://unsplash.com/photos/UZ3V6AV5y4o",
   },
+  5: {
+    imageLocation: "./images/waterfall.jpg",
+    imageUrl: "https://unsplash.com/photos/JZCJotPa96c",
+  },
+  6: {
+    imageLocation: "./images/water-cave.jpg",
+    imageUrl: "https://unsplash.com/photos/F3rDBnQQbQU",
+  },
 };

@@ -41,6 +41,31 @@ a {
     margin: auto;
 }
 
+.pop-up {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 6%;
+    bottom: 5%;
+    left: -30%;
+    background-color: #202020;
+    border-radius: 20px 40px;
+    padding: 0 10px;
+    z-index: 2;
+    opacity: .85;
+}
+
+.pop-up a {
+    width: 10%;
+    padding: 0 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: inherit;
+}
+
+
 #first-line,
 #second-line,
 #third-line {
