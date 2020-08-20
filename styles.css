@@ -12,7 +12,7 @@ a {
     line-height: 20px;
 }
 
-.background {
+.background-container {
     position: fixed;
     left: 0;
     top: 0;
@@ -24,7 +24,26 @@ a {
     justify-content: center;
 }
 
-.welcome-message p {
+.background {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    opacity: 0;
+}
+
+.background img {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+}
+
+#first-line,
+#second-line,
+#third-line {
     opacity: 0;
     font-size: 4em;
 }
@@ -39,7 +58,7 @@ a {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
+    z-index: 2;
 }
 
 .menu-item-container {
@@ -65,7 +84,6 @@ a {
 /* Animations */
 i {
     opacity: 1;
-
 }
 
 .hover-text {
@@ -73,7 +91,9 @@ i {
     width: 100%;
     opacity: 0;
     transition: .6s ease;
-    color: #D2691E;
+    /* color: #D2691E; */
+    color: #a9a9a9;
+
     background-color: #505050
 }
 
@@ -91,4 +111,5 @@ i {
 
 .animation-container:hover>i {
     opacity: 0;
+    transition: .6s ease;
 }
