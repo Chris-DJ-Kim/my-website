@@ -42,9 +42,21 @@ a {
 }
 
 .text {
+    position: absolute;
+    left: 20%;
+    right: 20%;
+    display: table-cell;
     z-index: 2;
-    opacity: .7;
+    opacity: .95;
+    font-size: 2em;
     background-color: #202020;
+    padding: 25px 100px;
+    border-radius: 50px
+}
+
+.text p {
+    line-height: 30px;
+    padding: auto 25px;
 }
 
 .pop-up {
