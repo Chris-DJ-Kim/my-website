@@ -5,6 +5,9 @@
 const numberOfBackgroundImages = Object.keys(images).length;
 let initialImageNumber = 0;
 
+//To ensure background image doesn't popup too early in home page
+let isHomePage = false;
+
 function pageIsLoaded() {
   initialImageNumber = Math.floor(Math.random() * numberOfBackgroundImages);
 
@@ -13,6 +16,11 @@ function pageIsLoaded() {
   backgroundImage.src = images[initialImageNumber].imageLocation;
 
   currentImageNumber = initialImageNumber;
+  if (!isHomePage) {
+    document.getElementsByClassName("background")[0].style.opacity = "1";
+    document.getElementsByClassName("background")[0].style.transition =
+      "1s ease";
+  }
 }
 
 function homePageIsLoaded() {
@@ -37,8 +45,6 @@ function homePageIsLoaded() {
     thirdLine.style.opacity = "0";
     thirdLine.style.transition = ".4s ease 3s";
   }, 4500);
-
-  backGround.style.opacity = "0";
 
   setTimeout(() => {
     backGround.style.opacity = "1";
@@ -72,6 +78,7 @@ function homePageIsLoaded() {
   //ALSO ADD TRANSITION EFFECTS!!!
   let currentImageNumber = 0;
 
+  isHomePage = true;
   pageIsLoaded();
 
   const backgroundImage = document.getElementById("background-image");
