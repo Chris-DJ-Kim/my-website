@@ -29,7 +29,7 @@ a {
     height: 100%;
     width: 100%;
     z-index: 1;
-    opacity: 0;
+    opacity: 1;
 }
 
 .background img {
@@ -39,6 +39,12 @@ a {
     right: 0;
     left: 0;
     margin: auto;
+}
+
+.text {
+    z-index: 2;
+    opacity: .7;
+    background-color: #202020;
 }
 
 .pop-up {

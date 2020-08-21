@@ -1,6 +1,21 @@
 //Any reference to 'images' object is accessed from images-store.js
-//Makes welcome message fade in and out--can shorten later by making a function
-window.onload = () => {
+
+//Randomizes initial background image on page load
+
+const numberOfBackgroundImages = Object.keys(images).length;
+let initialImageNumber = 0;
+
+function pageIsLoaded() {
+  initialImageNumber = Math.floor(Math.random() * numberOfBackgroundImages);
+
+  const backgroundImage = document.getElementById("background-image");
+
+  backgroundImage.src = images[initialImageNumber].imageLocation;
+
+  currentImageNumber = initialImageNumber;
+}
+
+function homePageIsLoaded() {
   const firstLine = document.getElementById("first-line");
   const secondLine = document.getElementById("second-line");
   const thirdLine = document.getElementById("third-line");
@@ -22,6 +37,8 @@ window.onload = () => {
     thirdLine.style.opacity = "0";
     thirdLine.style.transition = ".4s ease 3s";
   }, 4500);
+
+  backGround.style.opacity = "0";
 
   setTimeout(() => {
     backGround.style.opacity = "1";
@@ -47,26 +64,19 @@ window.onload = () => {
   function showImageLink() {
     setTimeout(() => {
       handlePopUp(linkPopUp, "3%", "2s");
-    }, 5000);
+    }, 6000);
   }
-
-  //Randomizes initial background image
-  const numberOfBackgroundImages = Object.keys(images).length;
-
-  const initialImageNumber = Math.floor(
-    Math.random() * numberOfBackgroundImages
-  );
-
-  const backgroundImage = document.getElementById("background-image");
-  const backgroundImageLink = document.getElementById("image-link");
-
-  backgroundImage.src = images[initialImageNumber].imageLocation;
-  backgroundImageLink.href = images[initialImageNumber].imageUrl;
 
   //Enable user to switch images with arrow keys
   //In future add buffer time between arrow keys to prevent super fast swapping
   //ALSO ADD TRANSITION EFFECTS!!!
-  let currentImageNumber = initialImageNumber;
+  let currentImageNumber = 0;
+
+  pageIsLoaded();
+
+  const backgroundImage = document.getElementById("background-image");
+  const backgroundImageLink = document.getElementById("image-link");
+  backgroundImageLink.href = images[initialImageNumber].imageUrl;
 
   setTimeout(() => {
     window.addEventListener("keydown", (event) => {
@@ -94,4 +104,4 @@ window.onload = () => {
       }
     });
   }, 9500);
-};
+}
