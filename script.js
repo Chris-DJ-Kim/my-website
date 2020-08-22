@@ -64,7 +64,7 @@ function homePageIsLoaded() {
   }, 10000);
 
   setTimeout(() => {
-    handlePopUp(instructionsPopUp, "-30%", "2s");
+    handlePopUp(instructionsPopUp, "-40%", "2s");
   }, 16000);
 
   const linkPopUp = document.getElementById("image-link-pop-up");
@@ -97,6 +97,7 @@ function homePageIsLoaded() {
           backgroundImageLink.href = images[currentImageNumber].imageUrl;
           clearTimeout(showImageLink);
           showImageLink();
+
           break;
         case "ArrowRight":
           if (currentImageNumber === numberOfBackgroundImages - 1)
