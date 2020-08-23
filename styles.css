@@ -41,11 +41,12 @@ a {
     margin: auto;
 }
 
-.info {
+.info-container {
     position: absolute;
     left: 20%;
     right: 20%;
-    display: table-cell;
+    display: flex;
+    flex-direction: column;
     z-index: 2;
     opacity: .95;
     font-size: 2em;
@@ -54,9 +55,31 @@ a {
     border-radius: 50px
 }
 
-.info p {
+.info-container p {
     line-height: 30px;
     padding: auto 25px;
+}
+
+.heading {
+    width: 100%;
+}
+
+.left-right-container {
+    display: flex;
+    flex-direction: row;
+
+}
+
+.left-container {
+    width: 48%;
+    margin-right: 30px;
+    left: 0;
+}
+
+.right-container {
+    width: 48%;
+    margin-left: 30px;
+    right: 0;
 }
 
 .pop-up {
@@ -124,18 +147,26 @@ a {
     margin-bottom: 30px;
 }
 
-
+.small {
+    margin: 0 auto;
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+}
 
 /* Animations */
+/* There's some issues with getting transition to work properly
+ with the i tags "invalid property value" fix later */
 i {
     opacity: 1;
+    transition: all .6;
 }
 
 .hover-text {
     height: 100%;
     width: 100%;
     opacity: 0;
-    transition: .6s ease;
+    transition: all .6s;
     /* color: #D2691E; */
     color: #a9a9a9;
 
@@ -147,11 +178,13 @@ i {
     top: 0;
     left: 0;
     right: 0;
-    bottom: 0
+    bottom: 0;
+    cursor: pointer;
 }
 
 .animation-container:hover .hover-text {
     opacity: 1;
+    transition: .6s ease;
 }
 
 .animation-container:hover>i {
